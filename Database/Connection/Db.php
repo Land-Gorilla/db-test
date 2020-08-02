@@ -12,7 +12,7 @@ use PDOException;
 
 final class Db
 {
-    private PDO $pdo;
+    private ?PDO $pdo;
     private Database $db;
 
     /**
@@ -22,6 +22,7 @@ final class Db
     public function __construct(Read $read)
     {
         $this->db = $read->getConfiguration();
+        $this->pdo = null;
     }
 
     /**
@@ -69,7 +70,7 @@ final class Db
     private function connect(): ?PDO
     {
         try {
-            self::$pdo = new PDO(
+            $this->pdo = new PDO(
                 $this->buildDsn(),
                 $this->db->user(),
                 $this->db->password()
@@ -79,6 +80,6 @@ final class Db
             return null;
         }
 
-        return self::$pdo;
+        return $this->pdo;
     }
 }
