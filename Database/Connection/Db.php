@@ -12,7 +12,7 @@ use PDOException;
 
 final class Db
 {
-    private static PDO $pdo;
+    private PDO $pdo;
     private Database $db;
 
     /**
@@ -29,9 +29,9 @@ final class Db
      */
     public function get(): ?PDO
     {
-        if (self::$pdo == null) {
+        if ($this->pdo == null) {
             try {
-                self::$pdo = new PDO(
+                $this->pdo = new PDO(
                     $this->buildDsn(),
                     $this->db->user(),
                     $this->db->password()
@@ -41,7 +41,7 @@ final class Db
                 return null;
             }
         }
-        return self::$pdo;
+        return $this->pdo;
     }
 
     /**
