@@ -30,19 +30,20 @@ final class Db
      */
     public function get(): ?PDO
     {
-        if ($this->pdo == null) {
-            try {
-                $this->pdo = new PDO(
-                    $this->buildDsn(),
-                    $this->db->user(),
-                    $this->db->password()
-                );
-            } catch (PDOException $e) {
-                $e->getMessage();
-                return null;
-            }
+        if ($this->pdo != null) {
+            return $this->pdo;
         }
-        return $this->pdo;
+        try {
+            $this->pdo = new PDO(
+                $this->buildDsn(),
+                $this->db->user(),
+                $this->db->password()
+            );
+            return $this->pdo;
+        } catch (PDOException $e) {
+            $e->getMessage();
+            return null;
+        }
     }
 
     /**
