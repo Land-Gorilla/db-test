@@ -41,6 +41,7 @@ final class Db
             );
             return $this->pdo;
         } catch (PDOException $e) {
+            // TODO: Catch this exception on log
             $e->getMessage();
             return null;
         }
@@ -52,11 +53,7 @@ final class Db
      */
     private function buildDsn(): string
     {
-        return (new DsnBase(
-            $this->db->host(),
-            $this->db->databaseName(),
-            $this->db->driver()
-        ))->dsn();
+        return (new DsnBase($this->db))->dsn();
     }
 
     public function __destruct()

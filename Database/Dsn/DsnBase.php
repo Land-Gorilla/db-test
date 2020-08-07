@@ -4,33 +4,29 @@
 namespace Database\Dsn;
 
 
+use Database\Configuration\Database;
+
 final class DsnBase
 {
-    private string $databaseName;
-    private string $host;
-    private string $driver;
+    private Database $database;
 
     /**
      * DsnBase constructor.
-     * @param string $databaseName
-     * @param string $host
-     * @param string $driver
+     * @param Database $database
      */
-    public function __construct(string $databaseName, string $host, string $driver)
+    public function __construct(Database $database)
     {
-        $this->databaseName = $databaseName;
-        $this->host = $host;
-        $this->driver = $driver;
+        $this->database = $database;
     }
 
     public function dsn(): string
     {
-        switch ($this->driver) {
+        switch ($this->database->driver()) {
             case 'mysql':
-                return (new MysqlDsn($this->host, $this->databaseName))->buildDsn();
+                return (new MysqlDsn($this->database))->buildDsn();
             default:
+                // TODO: make exception
                 return '';
-            // TODO: make exception
         }
     }
 }

@@ -4,19 +4,19 @@
 namespace Database\Dsn;
 
 
+use Database\Configuration\Database;
+
 final class MysqlDsn implements Dsn
 {
-    private string $host;
-    private string $database;
+    private Database $db;
 
-    public function __construct(string $host, string $database)
+    public function __construct(Database $database)
     {
-        $this->host = $host;
-        $this->database = $database;
+        $this->db = $database;
     }
 
     public function buildDsn(): string
     {
-        return "mysql:host={$this->host};dbname={$this->database};charset=utf8";
+        return "{$this->db->driver()}:host={$this->db->host()};dbname={$this->db->databaseName()};charset=utf8";
     }
 }
