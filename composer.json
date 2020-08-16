@@ -1,9 +1,9 @@
 {
     "name": "landgorilla/database",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "The Land Gorilla database connection",
     "require": {
-        "php": ">=7.4",
+        "php": ">=7.2",
         "ext-pdo": "*"
     },
     "keywords": [

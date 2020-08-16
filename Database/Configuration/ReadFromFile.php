@@ -1,10 +1,6 @@
 <?php declare(strict_types=1);
 
-
 namespace Database\Configuration;
-
-
-use function parse_ini_file;
 
 final class ReadFromFile implements Read
 {
