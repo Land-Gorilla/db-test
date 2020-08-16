@@ -8,7 +8,7 @@ use Database\Configuration\Database;
 
 final class DsnBase
 {
-    private Database $database;
+    private $database;
 
     /**
      * DsnBase constructor.

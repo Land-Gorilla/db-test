@@ -8,7 +8,7 @@ use Database\Configuration\Database;
 
 final class MysqlDsn implements Dsn
 {
-    private Database $db;
+    private $db;
 
     public function __construct(Database $database)
     {

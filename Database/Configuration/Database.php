@@ -6,11 +6,11 @@ namespace Database\Configuration;
 
 final class Database
 {
-    private string $databaseName;
-    private string $host;
-    private string $driver;
-    private string $password;
-    private string $user;
+    private $databaseName;
+    private $host;
+    private $driver;
+    private $password;
+    private $user;
 
     /**
      * Database constructor.

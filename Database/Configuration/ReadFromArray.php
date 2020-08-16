@@ -6,7 +6,7 @@ namespace Database\Configuration;
 
 final class ReadFromArray implements Read
 {
-    private array $arrayConfig;
+    private $arrayConfig;
 
     /**
      * ReadFromFile constructor.

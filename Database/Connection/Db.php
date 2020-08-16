@@ -12,8 +12,8 @@ use PDOException;
 
 final class Db
 {
-    private ?PDO $pdo;
-    private Database $db;
+    private $pdo;
+    private $db;
 
     /**
      * Db constructor.

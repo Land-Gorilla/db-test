@@ -12,7 +12,7 @@ use PDOStatement;
 final class Base
 {
 
-    private Read $read;
+    private $read;
 
     /**
      * Base constructor.

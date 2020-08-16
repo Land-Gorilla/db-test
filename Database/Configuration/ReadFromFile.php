@@ -8,7 +8,7 @@ use function parse_ini_file;
 
 final class ReadFromFile implements Read
 {
-    private string $fileName;
+    private $fileName;
 
     /**
      * ReadFromFile constructor.
