@@ -1,6 +1,6 @@
 {
     "name": "landgorilla/database",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "The Land Gorilla database connection",
     "require": {
         "php": ">=7.4",
